@@ -12,6 +12,8 @@ const config = {
 class Firebase {
   constructor() {
     firebase.initializeApp(config);
+
+    this.storage = firebase.storage();
   }
 }
 
