@@ -37,6 +37,7 @@ const StyledButton = styled.button`
 const DropdownMenu = (props) => {
   const { point, menuItems } = props;
 
+<<<<<<< HEAD
   const buttons = menuItems.map((item) => {
     return (
       <StyledButton type="button" onClick={item.onClick}>
@@ -48,6 +49,11 @@ const DropdownMenu = (props) => {
   return (
     <div>
       <StyledDropdownMenu point={point}>{buttons}</StyledDropdownMenu>
+=======
+  return (
+    <div>
+      <StyledDropdownMenu point={point}>{menuItems}</StyledDropdownMenu>
+>>>>>>> fbea80c5cfd18e4f790a766e78fdf0750e3b6836
     </div>
   );
 };
