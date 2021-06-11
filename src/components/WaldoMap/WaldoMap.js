@@ -19,7 +19,6 @@ const WaldoMapBase = (props) => {
 
   const targetCharacters = ['Waldo', 'Hippo'];
 
-<<<<<<< HEAD
   const menuItems = targetCharacters.map((name) => ({
     name,
     onClick: () => {
@@ -27,13 +26,6 @@ const WaldoMapBase = (props) => {
       setShowDropdown(false);
     },
   }));
-=======
-  const menuItems = targetCharacters.map((name) => (
-    <button type="button" onClick={() => alert(name)}>
-      {name}
-    </button>
-  ));
->>>>>>> fbea80c5cfd18e4f790a766e78fdf0750e3b6836
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
