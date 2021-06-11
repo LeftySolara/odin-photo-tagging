@@ -14,10 +14,16 @@ const WaldoMapBase = (props) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [dropdownPosition, setDropdownPosition] = useState({ x: 0, y: 0 });
 
-  const menuItems = [<li>Waldo</li>, <li>Hippo</li>];
-
   const storageRef = firebase.storage.ref();
   const imageRef = storageRef.child('public/waldo_map_1.jpg');
+
+  const targetCharacters = ['Waldo', 'Hippo'];
+
+  const menuItems = targetCharacters.map((name) => (
+    <button type="button" onClick={() => alert(name)}>
+      {name}
+    </button>
+  ));
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
@@ -35,17 +41,20 @@ const WaldoMapBase = (props) => {
   });
 
   return (
-    <ReactCursorPosition
-      activationInteractionMouse={INTERACTIONS.CLICK}
-      onActivationChanged={toggleDropdown}
-      onPositionChanged={({ position }) => updateDropdownPosition(position)}
-      style={{ position: 'relative' }}
-    >
-      <img src={imageURL} alt="" />
+    <div>
+      <ReactCursorPosition
+        activationInteractionMouse={INTERACTIONS.CLICK}
+        onActivationChanged={toggleDropdown}
+        onPositionChanged={({ position }) => updateDropdownPosition(position)}
+        style={{ position: 'relative' }}
+      >
+        <img src={imageURL} alt="" />
+      </ReactCursorPosition>
+
       {showDropdown && (
         <DropdownMenu point={dropdownPosition} menuItems={menuItems} />
       )}
-    </ReactCursorPosition>
+    </div>
   );
 };
 

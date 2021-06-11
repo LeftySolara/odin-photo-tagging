@@ -22,7 +22,11 @@ const StyledDropdownMenu = styled.ul`
 const DropdownMenu = (props) => {
   const { point, menuItems } = props;
 
-  return <StyledDropdownMenu point={point}>{menuItems}</StyledDropdownMenu>;
+  return (
+    <div>
+      <StyledDropdownMenu point={point}>{menuItems}</StyledDropdownMenu>
+    </div>
+  );
 };
 
 export default DropdownMenu;
